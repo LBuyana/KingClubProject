@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
 import logo from '../../assets/logos/new_logo-removebg-preview.png';
 
 const quickLinks = [
@@ -42,14 +40,23 @@ function Footer() {
         <div className="site-footer__column">
           <h3>Social Media</h3>
           <div className="site-footer__socials">
-            <a href="https://www.facebook.com/kc.kingclub/" target="_blank" rel="noopener noreferrer">
-              <FaFacebook size={30} color="#1877F2" />
+            <a href="https://www.facebook.com/kc.kingclub/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 8h2V5h-2a3 3 0 0 0-3 3v2H8v3h3v7h3v-7h2l1-3h-3V8Z" fill="currentColor" />
+              </svg>
             </a>
-            <a href="https://www.instagram.com/kingclub1882/?hl=en" target="_blank" rel="noopener noreferrer">
-              <FaInstagram size={30} color="#E1306C" />
+            <a href="https://www.instagram.com/kingclub1882/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+              </svg>
             </a>
-            <a href="mailto:info@kingclub.co.za" target="_blank" rel="noopener noreferrer">
-              <MdEmail size={30} color="#0070f3" />
+            <a href="mailto:info@kingclub.co.za" target="_blank" rel="noopener noreferrer" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
             </a>
           </div>
         </div>
