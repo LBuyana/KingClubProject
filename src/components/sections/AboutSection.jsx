@@ -104,7 +104,7 @@ function AboutSection() {
 
   return (
     <section
-      className={`about-section${isVisible ? ' about-section--visible' : ''}`}
+      className={`about-section about-section--page${isVisible ? ' about-section--visible' : ''}`}
       id="about"
       ref={sectionRef}
     >

@@ -321,8 +321,12 @@ body.home-page .navbar {
 
 .about-section {
   width: 100%;
-  padding: 100px 2rem;
+  padding: 100px 2rem 80px;
   background: #f8f7f4;
+}
+
+.about-section--page {
+  padding-top: 130px;
 }
 
 .about-section__container {
@@ -964,7 +968,7 @@ body.home-page .navbar {
 
 @media (max-width: 640px) {
   :root {
-    --navbar-height: 78px;
+    --navbar-height: 72px;
   }
 
   .navbar__container {
@@ -982,7 +986,11 @@ body.home-page .navbar {
   }
 
   .about-section {
-    padding: 72px 1.25rem;
+    padding: 112px 1.25rem 72px;
+  }
+
+  .about-section--page {
+    padding-top: 140px;
   }
 
   .about-section h2 {
