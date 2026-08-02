@@ -40,8 +40,7 @@ a {
 }
 
 .navbar--scrolled,
-.navbar--menu-open,
-body.home-page .navbar {
+.navbar--menu-open {
   color: var(--color-text-scrolled);
   background: var(--color-surface);
   box-shadow: var(--shadow-navbar);
@@ -51,6 +50,12 @@ body.home-page .navbar {
   color: var(--color-text);
   background: transparent;
   box-shadow: none;
+}
+
+body.home-page .navbar--scrolled {
+  color: var(--color-text-scrolled);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-navbar);
 }
 
 .navbar__container {
