@@ -2,6 +2,14 @@
 
 A modern React and Vite website for King Club, showcasing the hotel's accommodation, dining, events, and contact experience. The project features a polished landing page, responsive navigation, route-based pages, and a scalable structure for future expansion.
 
+## Repository Description
+
+This project is a responsive hotel website built with React and Vite, designed to present King Club as a premium venue with elegant visuals and a smooth user experience.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 ## Features
 
 - Responsive hero landing page
