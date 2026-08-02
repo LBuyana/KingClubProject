@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook } from 'react-icons/fa';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 import logo from '../../assets/logos/new_logo-removebg-preview.png';
-import { FaInstagram } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md'; 
 
 const quickLinks = [
   { label: 'Home', to: '/' },
