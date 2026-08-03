@@ -386,6 +386,11 @@ body.home-page .navbar--scrolled {
   color: #666666;
 }
 
+.about-section__button-wrap {
+  position: relative;
+  display: inline-block;
+}
+
 .about-section__button {
   display: inline-flex;
   align-items: center;
@@ -394,6 +399,8 @@ body.home-page .navbar--scrolled {
   padding: 14px 30px;
   font-weight: 700;
   color: var(--color-accent);
+  cursor: pointer;
+  background: transparent;
   border: 1px solid var(--color-accent);
   border-radius: 8px;
   transition:
@@ -406,6 +413,32 @@ body.home-page .navbar--scrolled {
   color: #ffffff;
   background: var(--color-accent);
   transform: translateY(-2px);
+}
+
+.about-section__dropdown {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  left: 0;
+  display: grid;
+  gap: 0.5rem;
+  min-width: 220px;
+  padding: 0.8rem;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 12%);
+}
+
+.about-section__dropdown a {
+  padding: 0.75rem 0.9rem;
+  font-weight: 600;
+  color: #222222;
+  border-radius: 10px;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.about-section__dropdown a:hover {
+  color: var(--color-accent);
+  background: #f8f7f2;
 }
 
 .feature-cards {
@@ -1024,8 +1057,8 @@ body.home-page .navbar--scrolled {
 .room-card {
   overflow: hidden;
   background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 16px 42px rgb(0 0 0 / 8%);
+  border-radius: 20px;
+  box-shadow: 0 18px 45px rgb(28 28 28 / 8%);
   animation: fadeUp 700ms ease both;
   animation-delay: calc(var(--delay, 0) * 120ms);
   transition: transform 300ms ease, box-shadow 300ms ease;
@@ -1033,7 +1066,7 @@ body.home-page .navbar--scrolled {
 
 .room-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 48px rgb(0 0 0 / 14%);
+  box-shadow: 0 26px 60px rgb(28 28 28 / 14%);
 }
 
 .room-card__image-wrap {
@@ -1053,7 +1086,7 @@ body.home-page .navbar--scrolled {
 }
 
 .room-card__body {
-  padding: 1.35rem 1.3rem 1.5rem;
+  padding: 1.45rem 1.3rem 1.5rem;
 }
 
 .room-card h3 {
@@ -1106,12 +1139,15 @@ body.home-page .navbar--scrolled {
   padding: 0.7rem 0.95rem;
   font-size: 0.9rem;
   font-weight: 700;
+  cursor: pointer;
+  border: 0;
   border-radius: 999px;
   transition: transform 300ms ease, background-color 300ms ease, color 300ms ease;
 }
 
 .room-card__link {
   color: var(--color-accent);
+  background: transparent;
   border: 1px solid var(--color-accent);
 }
 
@@ -1224,7 +1260,24 @@ body.home-page .navbar--scrolled {
 }
 
 .amenity-card__icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
   font-size: 1.4rem;
+  color: var(--color-accent);
+  border: 1px solid rgb(201 164 93 / 24%);
+  border-radius: 50%;
+  place-items: center;
+}
+
+.amenity-card__icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .accommodation-cta__container {

@@ -64,6 +64,7 @@ function AboutSection() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeImages, setActiveImages] = useState({});
+  const [showExploreMenu, setShowExploreMenu] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -120,9 +121,25 @@ function AboutSection() {
             in one welcoming destination. Every detail is shaped for guests who want comfort,
             convenience, and a memorable stay in King William's Town.
           </p>
-          <Link className="about-section__button" to="/contact">
-            Learn More
-          </Link>
+          <div className="about-section__button-wrap">
+            <button
+              type="button"
+              className="about-section__button"
+              onClick={() => setShowExploreMenu((current) => !current)}
+            >
+              Learn More
+            </button>
+            {showExploreMenu && (
+              <div className="about-section__dropdown">
+                <Link to="/accommodation" onClick={() => setShowExploreMenu(false)}>
+                  Accommodation
+                </Link>
+                <Link to="/restaurant" onClick={() => setShowExploreMenu(false)}>
+                  Restaurant
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="feature-cards">

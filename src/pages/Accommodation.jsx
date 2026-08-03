@@ -16,7 +16,84 @@ const amenities = [
   { name: 'Tea & Coffee', icon: '☕' },
 ];
 
+function SnowflakeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3v18" />
+      <path d="M5 7l7 5 7-5" />
+      <path d="M5 17l7-5 7 5" />
+      <path d="M7 5l5 7-5 7" />
+      <path d="M17 5l-5 7 5 7" />
+    </svg>
+  );
+}
+
+function WifiIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 8a13 13 0 0 1 16 0" />
+      <path d="M8 12a8 8 0 0 1 8 0" />
+      <path d="M12 16h.01" />
+    </svg>
+  );
+}
+
+function TvIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="12" rx="2" />
+      <path d="M8 19h8" />
+      <path d="M12 17v2" />
+    </svg>
+  );
+}
+
+function IceCubeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 8h14" />
+      <path d="M7 8v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V8" />
+      <path d="M9 4h6" />
+      <path d="M10 12h4" />
+    </svg>
+  );
+}
+
+function SafeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 8h14v8H5z" />
+      <path d="M9 12h6" />
+      <path d="M12 9v6" />
+    </svg>
+  );
+}
+
+function CoffeeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 7h12a2 2 0 0 1 2 2v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7h2z" />
+      <path d="M5 7V5h12v2" />
+      <path d="M7 17h8" />
+      <path d="M9 20h6" />
+    </svg>
+  );
+}
+
+const amenityIcons = {
+  'Air Conditioning': <SnowflakeIcon />,
+  'Free Wi-Fi': <WifiIcon />,
+  'Smart TV': <TvIcon />,
+  'Mini Bar': <IceCubeIcon />,
+  'In-room Safe': <SafeIcon />,
+  'Tea & Coffee': <CoffeeIcon />,
+};
+
 function HeroSection() {
+  const scrollToRooms = () => {
+    document.getElementById('room-listings')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <section className="accommodation-hero" style={{ backgroundImage: `url(${heroBackground})` }}>
       <div className="accommodation-hero__overlay" />
@@ -27,9 +104,9 @@ function HeroSection() {
           Discover refined spaces designed for relaxation, business travel, and effortless
           celebration at King Club.
         </p>
-        <Link className="accommodation-hero__button" to="/contact">
+        <button type="button" className="accommodation-hero__button" onClick={scrollToRooms}>
           Explore Rooms
-        </Link>
+        </button>
       </div>
     </section>
   );
@@ -59,7 +136,7 @@ function RoomCategoryFilter({ activeCategory, onChange }) {
 
 function RoomGrid({ roomsToShow }) {
   return (
-    <section className="accommodation-grid" aria-label="Available rooms">
+    <section id="room-listings" className="accommodation-grid" aria-label="Available rooms">
       <div className="accommodation-grid__container">
         {roomsToShow.map((room, index) => (
           <article
@@ -83,12 +160,12 @@ function RoomGrid({ roomsToShow }) {
                   <span className="room-card__price">From {room.price}</span>
                 </div>
                 <div className="room-card__actions">
-                  <Link className="room-card__link" to="/contact">
+                  <button type="button" className="room-card__link">
                     View Details
-                  </Link>
-                  <Link className="room-card__button" to="/contact">
+                  </button>
+                  <button type="button" className="room-card__button">
                     Book Now
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -120,9 +197,9 @@ function FeaturedExperience() {
             <li>Mini Bar</li>
             <li>Room Service</li>
           </ul>
-          <Link className="accommodation-experience__button" to="/contact">
+          <button type="button" className="accommodation-experience__button" onClick={() => document.getElementById('room-listings')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
             Explore Rooms
-          </Link>
+          </button>
         </div>
       </div>
     </section>
@@ -141,7 +218,7 @@ function AmenitiesSection() {
           {amenities.map((item) => (
             <div className="amenity-card" key={item.name}>
               <span className="amenity-card__icon" aria-hidden="true">
-                {item.icon}
+                {amenityIcons[item.name]}
               </span>
               <span>{item.name}</span>
             </div>
