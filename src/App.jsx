@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import ScrollToTop from './components/ScrollToTop.jsx';
 import NotFound from './pages/NotFound.jsx';
 import PlaceholderPage from './pages/PlaceholderPage.jsx';
+import AccommodationPage from './pages/Accommodation.jsx';
 
 function AppContent() {
   const location = useLocation();
@@ -55,15 +56,7 @@ function AppContent() {
 
           {/* SEPARATE PAGE ROUTES */}
           <Route path="/about" element={<AboutSection />} />
-          <Route
-            path="/accommodation"
-            element={
-              <PlaceholderPage
-                title="Accommodation"
-                description="A dedicated accommodation experience page will be added here soon."
-              />
-            }
-          />
+          <Route path="/accommodation" element={<AccommodationPage />} />
           <Route
             path="/restaurant"
             element={<PlaceholderPage title="Restaurant" description="Our restaurant experience page will be added here soon." />}
