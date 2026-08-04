@@ -37,8 +37,8 @@ const features = [
     ),
   },
   {
-    title: 'Business Events',
-    description: 'Professional conference and meeting facilities.',
+    title: 'Signature Spaces',
+    description: 'Elegant settings designed for memorable stays and gatherings.',
     images: [hotelImage],
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">

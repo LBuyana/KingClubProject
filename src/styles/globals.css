@@ -234,6 +234,185 @@ body.home-page .navbar--scrolled {
   font-size: 1rem;
 }
 
+body.booking-modal-open {
+  overflow: hidden;
+}
+
+body.booking-modal-open main,
+body.booking-modal-open .site-footer,
+body.booking-modal-open .navbar {
+  filter: blur(8px) saturate(0.9);
+  transition: filter 220ms ease;
+}
+
+.booking-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgb(3 8 15 / 72%);
+  backdrop-filter: blur(8px);
+}
+
+.booking-modal {
+  position: relative;
+  width: min(100%, 720px);
+  max-height: min(90vh, 860px);
+  overflow: auto;
+  padding: 2rem;
+  color: var(--color-text);
+  background: rgb(12 18 27 / 97%);
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 24px;
+  box-shadow: 0 32px 80px rgb(0 0 0 / 40%);
+}
+
+.booking-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 1.6rem;
+  color: var(--color-text);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+
+.booking-modal__header {
+  margin-bottom: 1.25rem;
+}
+
+.booking-modal__header h2 {
+  margin: 0.25rem 0 0.65rem;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  color: #fff;
+}
+
+.booking-modal__header p:last-child {
+  margin: 0;
+  color: rgb(221 229 241 / 85%);
+}
+
+.booking-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-form__field {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f5e9d5;
+}
+
+.booking-form__field span {
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.booking-form__field select,
+.booking-form__field input,
+.booking-form__textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  color: #f7efe3;
+  background: rgb(8 13 24 / 95%);
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 12px;
+  outline: none;
+  appearance: none;
+}
+
+.booking-form__field select option {
+  color: #f7efe3;
+  background: rgb(8 13 24 / 95%);
+}
+
+.booking-form__field select:focus,
+.booking-form__field input:focus,
+.booking-form__textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgb(193 140 77 / 20%);
+}
+
+.booking-form__field select {
+  cursor: pointer;
+}
+
+.booking-form__field select:focus,
+.booking-form__field input:focus,
+.booking-form__textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgb(193 140 77 / 20%);
+}
+
+.booking-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.booking-form__textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.booking-form__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.95rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: var(--color-accent);
+  border: 0;
+  border-radius: 999px;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.booking-form__submit:disabled {
+  cursor: wait;
+  opacity: 0.8;
+  transform: none;
+  box-shadow: none;
+}
+
+.booking-form__submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgb(193 140 77 / 22%);
+}
+
+.booking-form__error {
+  padding: 0.9rem 1rem;
+  margin: 0;
+  color: #ffd8d8;
+  background: rgb(175 44 44 / 16%);
+  border: 1px solid rgb(175 44 44 / 28%);
+  border-radius: 12px;
+}
+
+.booking-form__success {
+  padding: 0.9rem 1rem;
+  margin: 0;
+  color: #f4e4c4;
+  background: rgb(193 140 77 / 16%);
+  border: 1px solid rgb(193 140 77 / 26%);
+  border-radius: 12px;
+}
+
 .hero {
   position: relative;
   display: grid;
@@ -1301,6 +1480,363 @@ body.home-page .navbar--scrolled {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+.restaurant-page {
+  background: #f8f7f2;
+  color: var(--color-text-scrolled);
+}
+
+.restaurant-hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: 720px;
+  padding: calc(var(--navbar-height) + 4rem) 2rem 5rem;
+  overflow: hidden;
+  color: #ffffff;
+  background-position: center;
+  background-size: cover;
+}
+
+.restaurant-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 45%) 100%);
+}
+
+.restaurant-hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--container-width));
+  margin: 0 auto;
+  padding-top: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+.restaurant-hero h1,
+.restaurant-intro h2,
+.restaurant-dishes h2,
+.restaurant-private h2,
+.restaurant-hours h2,
+.restaurant-cta h2 {
+  margin: 0 0 1rem;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: clamp(2.3rem, 4vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.restaurant-hero p,
+.restaurant-intro__content p,
+.restaurant-private__content p,
+.restaurant-cta p {
+  max-width: 620px;
+  margin: 0 0 2rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgb(255 255 255 / 90%);
+}
+
+.restaurant-hero__button,
+.restaurant-intro__button,
+.restaurant-private__button,
+.restaurant-cta__button,
+.restaurant-dishes__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.9rem 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--color-accent);
+  border-radius: 999px;
+  transition: transform 300ms ease, box-shadow 300ms ease, background-color 300ms ease;
+}
+
+.restaurant-hero__button:hover,
+.restaurant-intro__button:hover,
+.restaurant-private__button:hover,
+.restaurant-cta__button:hover,
+.restaurant-dishes__button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgb(0 0 0 / 18%);
+  background: var(--color-accent-dark);
+}
+
+.restaurant-intro,
+.restaurant-dishes,
+.restaurant-private,
+.restaurant-hours,
+.restaurant-cta {
+  padding: 5rem 0;
+}
+
+.restaurant-intro__container,
+.restaurant-dishes__container,
+.restaurant-private__container,
+.restaurant-hours__container,
+.restaurant-cta__container {
+  width: min(100%, var(--container-width));
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.restaurant-intro__container {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.restaurant-intro__content h2,
+.restaurant-hours__head h2 {
+  color: #222222;
+}
+
+.restaurant-intro__content p,
+.restaurant-private__content p,
+.restaurant-hours__list,
+.restaurant-dishes__head p,
+.restaurant-cta p {
+  color: #666666;
+}
+
+.restaurant-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.restaurant-feature-card {
+  padding: 1.4rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 18px 45px rgb(28 28 28 / 8%);
+  animation: fadeUp 700ms ease both;
+  animation-delay: calc(var(--delay, 0) * 120ms);
+}
+
+.restaurant-feature-card__icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 0.95rem;
+  color: var(--color-accent);
+  border: 1px solid rgb(201 164 93 / 24%);
+  border-radius: 50%;
+  place-items: center;
+}
+
+.restaurant-feature-card__icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.restaurant-feature-card h3,
+.dish-card h3 {
+  margin: 0 0 0.6rem;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: 1.3rem;
+  color: #222222;
+}
+
+.restaurant-feature-card p,
+.dish-card p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: #666666;
+}
+
+.restaurant-dishes__head {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.restaurant-dishes__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.restaurant-dishes__filter {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: #666666;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgb(34 34 34 / 12%);
+  border-radius: 999px;
+  transition: color 300ms ease, background-color 300ms ease, border-color 300ms ease;
+}
+
+.restaurant-dishes__filter.is-active,
+.restaurant-dishes__filter:hover {
+  color: #ffffff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.restaurant-dishes__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.dish-card {
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgb(28 28 28 / 8%);
+  animation: fadeUp 700ms ease both;
+  animation-delay: calc(var(--delay, 0) * 120ms);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.dish-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 60px rgb(28 28 28 / 14%);
+}
+
+.dish-card__image-wrap {
+  overflow: hidden;
+}
+
+.dish-card__image {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.dish-card:hover .dish-card__image {
+  transform: scale(1.05);
+}
+
+.dish-card__body {
+  padding: 1.3rem 1.2rem 1.5rem;
+}
+
+.dish-card span {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.restaurant-dishes__action {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.restaurant-dishes__button {
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid var(--color-accent);
+}
+
+.restaurant-private__container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.restaurant-private__image-wrap {
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.restaurant-private__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.restaurant-hours__list {
+  display: grid;
+  gap: 1rem;
+  padding: 1.8rem;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgb(28 28 28 / 8%);
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(34 34 34 / 8%);
+}
+
+.hours-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.restaurant-cta__container {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #f3efe7;
+  border-radius: 32px;
+}
+
+.restaurant-cta p {
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  color: #666666;
+}
+
+@media (max-width: 1100px) {
+  .restaurant-dishes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .restaurant-hero {
+    min-height: 620px;
+    padding: calc(var(--navbar-height) + 3rem) 1.2rem 3.5rem;
+  }
+
+  .restaurant-intro__container,
+  .restaurant-private__container {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-dishes__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-intro__container,
+  .restaurant-dishes__container,
+  .restaurant-private__container,
+  .restaurant-hours__container,
+  .restaurant-cta__container {
+    padding: 0 1.2rem;
+  }
+
+  .restaurant-hours__list {
+    padding: 1.3rem;
   }
 }
 

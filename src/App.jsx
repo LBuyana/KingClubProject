@@ -7,8 +7,8 @@ import Footer from './components/layout/Footer.jsx';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import NotFound from './pages/NotFound.jsx';
-import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import AccommodationPage from './pages/Accommodation.jsx';
+import RestaurantPage from './pages/Restaurant.jsx';
 
 function AppContent() {
   const location = useLocation();
@@ -57,15 +57,7 @@ function AppContent() {
           {/* SEPARATE PAGE ROUTES */}
           <Route path="/about" element={<AboutSection />} />
           <Route path="/accommodation" element={<AccommodationPage />} />
-          <Route
-            path="/restaurant"
-            element={<PlaceholderPage title="Restaurant" description="Our restaurant experience page will be added here soon." />}
-          />
-          <Route
-            path="/conferences"
-            element={<PlaceholderPage title="Conferences" description="The conferences and events page will be added here soon." />}
-          />
-          <Route path="/gallery" element={<PlaceholderPage title="Gallery" description="The gallery page will be added here soon." />} />
+          <Route path="/restaurant" element={<RestaurantPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
